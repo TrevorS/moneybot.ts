@@ -18,9 +18,9 @@ class StockTicker {
   static TIME_SERIES = TIME_SERIES;
   static TECHNICAL_INDICATOR = TECHNICAL_INDICATOR;
 
-  constructor(apiKey: string, outputSize: OUTPUT_SIZE) {
+  constructor(apiKey: string, outputSize?: OUTPUT_SIZE) {
     this.apiKey = apiKey;
-    this.outputSize = outputSize;
+    this.outputSize = outputSize || OUTPUT_SIZE.COMPACT;
   }
 
   private getTimeSeriesUrl(timeSeries: TIME_SERIES, symbol: string, interval?: INTERVAL): string {

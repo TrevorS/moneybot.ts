@@ -1,25 +1,10 @@
 import StockTicker from './StockTicker';
+import MoneyBot from './MoneyBot';
 
 const apiKey = process.env.API_KEY as string;
-const symbol = 'NEWR';
+const slackToken = process.env.SLACK_TOKEN as string;
 
-const outputSize = StockTicker.OUTPUT_SIZE.COMPACT;
-const interval = StockTicker.INTERVAL.ONE_MIN;
+const stockTicker = new StockTicker(apiKey);
+const moneyBot = new MoneyBot(slackToken);
 
-const ticker = new StockTicker(apiKey, outputSize);
-
-const timeSeries = StockTicker.TIME_SERIES.INTRADAY;
-ticker.getTimeSeries(timeSeries, symbol, interval)
-  .then(results => {
-    console.log(`timeSeries: ${timeSeries}`);
-    console.log('results.data', results.data);
-  });
-
-const technicalIndicator = StockTicker.TECHNICAL_INDICATOR.SMA;
-const timePeriod = 60;
-const seriesType = StockTicker.SERIES_TYPE.CLOSE;
-ticker.getTechnicalIndicator(technicalIndicator, symbol, interval, timePeriod, seriesType)
-  .then(results => {
-    console.log(`technicalIndicator: ${technicalIndicator}`);
-    console.log('results.data', results.data);
-  });
+moneyBot.start();
