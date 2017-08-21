@@ -4,11 +4,11 @@ declare namespace Slack {
   class RtmClient {
     constructor(token: string)
 
-    start(): any
+    start(): void
 
     on(event: string, callback: (message: Message) => any): void
 
-    sendMessage(message: string, channel: string): any
+    sendMessage(message: string, channel: string): void
   }
 
   interface Message {
