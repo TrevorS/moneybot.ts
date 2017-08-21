@@ -5,6 +5,7 @@ import INTERVAL from './Options/Interval';
 import SERIES_TYPE from './Options/SeriesType';
 import TIME_SERIES from './Options/TimeSeries';
 import TECHNICAL_INDICATOR from './Options/TechnicalIndicator';
+import PRICE from './Options/Price';
 
 class StockTicker {
   private apiKey: string
@@ -17,6 +18,7 @@ class StockTicker {
   static SERIES_TYPE = SERIES_TYPE;
   static TIME_SERIES = TIME_SERIES;
   static TECHNICAL_INDICATOR = TECHNICAL_INDICATOR;
+  static PRICE = PRICE;
 
   constructor(apiKey: string, outputSize?: OUTPUT_SIZE) {
     this.apiKey = apiKey;
