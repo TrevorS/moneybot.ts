@@ -14,7 +14,7 @@ class Action {
   }
 
   execute(client: Slack.RtmClient, message: Slack.Message): void {
-    this.response(client, message);
+    this.response(client, message, message.text.match(this.regex));
   }
 }
 

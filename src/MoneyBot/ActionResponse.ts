@@ -1,1 +1,2 @@
-export type ActionResponse = (client: Slack.RtmClient, message: Slack.Message) => void;
+export type ActionResponse =
+  (client: Slack.RtmClient, message: Slack.Message, matches: RegExpMatchArray | null) => void;
